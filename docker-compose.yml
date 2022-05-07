@@ -1,6 +1,14 @@
-version: "3.9"
+version: "3.3"
 services:
   http:
     build: ./http
     ports:
       - "8080:80"
+  minecraft:
+    image: itzg/minecraft-server
+    ports:
+      - "25565:25565"
+    environment:
+      EULA: "TRUE"
+      GAMEMODE: survival
+      DIFFICULTY: normal
