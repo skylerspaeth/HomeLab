@@ -12,3 +12,5 @@ services:
       EULA: "TRUE"
       GAMEMODE: survival
       DIFFICULTY: normal
+  discord:
+      build: ./discord
