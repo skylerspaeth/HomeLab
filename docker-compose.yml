@@ -16,3 +16,6 @@ services:
     build: ./discord
   media:
     image: linuxserver/jellyfin
+    volumes:
+      - /shows:/data/tvshows
+      - /movies:/data/movies
