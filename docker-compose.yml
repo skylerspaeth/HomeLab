@@ -17,5 +17,5 @@ services:
   media:
     image: linuxserver/jellyfin
     volumes:
-      - /shows:/data/tvshows
-      - /movies:/data/movies
+      - ./shows:/data/tvshows
+      - ./movies:/data/movies
