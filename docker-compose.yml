@@ -13,4 +13,6 @@ services:
       GAMEMODE: survival
       DIFFICULTY: normal
   discord:
-      build: ./discord
+    build: ./discord
+  media:
+    image: linuxserver/jellyfin
