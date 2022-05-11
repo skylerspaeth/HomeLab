@@ -10,6 +10,8 @@ services:
       - "25565:25565"
     environment:
       EULA: "TRUE"
+      TYPE: SPIGOT
+      VERSION: 1.16.4
       GAMEMODE: survival
       DIFFICULTY: normal
   discord:
@@ -17,5 +19,5 @@ services:
   media:
     image: linuxserver/jellyfin
     volumes:
-      - ./shows:/data/tvshows
-      - ./movies:/data/movies
+      - ./media/shows:/data/tvshows
+      - ./media/movies:/data/movies
