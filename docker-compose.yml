@@ -14,6 +14,8 @@ services:
       VERSION: 1.16.4
       GAMEMODE: survival
       DIFFICULTY: normal
+    volumes:
+      - ./minecraft/server:/data
   discord:
     build: ./discord
   media:
