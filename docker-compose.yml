@@ -10,10 +10,13 @@ services:
       - "25565:25565"
     environment:
       EULA: "TRUE"
+      JVM_OPTS: "-DIReallyKnowWhatIAmDoingISwear=true"
+      MEMORY: 2G
       TYPE: SPIGOT
       VERSION: 1.16.5
       GAMEMODE: survival
       DIFFICULTY: normal
+      WORLD: "worlds"
     volumes:
       - ./minecraft/server:/data
   discord:
