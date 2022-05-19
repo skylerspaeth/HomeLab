@@ -16,7 +16,7 @@ services:
       VERSION: 1.16.5
       GAMEMODE: survival
       DIFFICULTY: normal
-      WORLD: "world"
+      EXTRA_ARGS: "--world-dir ./worlds/"
     volumes:
       - ./minecraft/server:/data
   discord:
