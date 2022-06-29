@@ -2,7 +2,9 @@ version: "3.3"
 
 secrets:
   musicbot:
-    file: ./secrets/musicbot.txt
+    file: ./secrets/musicbot/config.txt
+  discord:
+    file: ./secrets/discord/config.json
 
 services:
   http:
@@ -28,11 +30,15 @@ services:
 
   discord:
     build: ./discord
+    environment:
+      CRED_FILE: /run/secrets/discord
+    secrets:
+      - discord
 
   musicbot:
     build: ./musicbot
     environment:
-      PASS_FILE: /run/secrets/musicbot
+      CRED_FILE: /run/secrets/musicbot
     secrets:
       - musicbot
 
