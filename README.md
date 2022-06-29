@@ -6,7 +6,7 @@ The following services are **fully functional**:
 - `discord`
 - `musicbot`
 
-The remaining services are still a work in progress:
+The remaining services are in varying stages of **work in progress**:
 - `http`
 - `minecraft`
 - `media`
