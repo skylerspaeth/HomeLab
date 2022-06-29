@@ -1,2 +1,3 @@
+secrets/*
+minecraft/server/*
 services.txt
-minecraft/server

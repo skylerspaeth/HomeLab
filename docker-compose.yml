@@ -1,9 +1,15 @@
 version: "3.3"
+
+secrets:
+  musicbot:
+    file: ./secrets/musicbot.txt
+
 services:
   http:
     build: ./http
     ports:
       - "8080:80"
+
   minecraft:
     image: itzg/minecraft-server:java11
     ports:
@@ -19,8 +25,17 @@ services:
       EXTRA_ARGS: "--world-dir ./worlds/"
     volumes:
       - ./minecraft/server:/data
+
   discord:
     build: ./discord
+
+  musicbot:
+    build: ./musicbot
+    environment:
+      PASS_FILE: /run/secrets/musicbot
+    secrets:
+      - musicbot
+
   media:
     image: linuxserver/jellyfin
     volumes:
