@@ -43,7 +43,19 @@ services:
       - musicbot
 
   media:
-    image: linuxserver/jellyfin
+    image: linuxserver/jellyfin:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Chicago
+      - JELLYFIN_PublishedServerUrl=media.skyspa.net
     volumes:
+      - ./media/config:/config
       - ./media/shows:/data/tvshows
       - ./media/movies:/data/movies
+    ports:
+      - 8096:8096 #http
+      - 8920:8920 #https
+      - 7359:7359/udp #auto-discovery
+      - 1900:1900/udp #auto-discovery
+    restart: unless-stopped

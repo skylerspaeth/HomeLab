@@ -1,3 +1,11 @@
 secrets/*
-minecraft/server/*
 services.txt
+
+# ignore services' data
+# for jellyfin
+media/shows/*
+media/movies/*
+media/config/*
+
+# for minecraft
+minecraft/server/*
