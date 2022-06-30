@@ -5,11 +5,11 @@ This repo creates most of the services I deploy in my home network.
 The following services are **fully functional**:
 - `discord`
 - `musicbot`
+- `media`
 
 The remaining services are in varying stages of **work in progress**:
 - `http`
 - `minecraft`
-- `media`
 - `csgo`
 
 ## Links:
