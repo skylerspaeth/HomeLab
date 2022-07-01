@@ -5,3 +5,6 @@ COPY texasalohamassage.com/ /var/www/texasalohamassage.com/
 
 COPY sites-enabled/* /etc/apache2/sites-enabled/
 RUN rm /etc/apache2/sites-enabled/000-default.conf
+
+EXPOSE 8080
+CMD apachectl -D FOREGROUND
