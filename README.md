@@ -6,9 +6,9 @@ The following services are **fully functional**:
 - `discord`
 - `musicbot`
 - `media`
+- `http`
 
 The remaining services are in varying stages of **work in progress**:
-- `http`
 - `minecraft`
 - `csgo`
 
