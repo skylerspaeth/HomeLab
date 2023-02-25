@@ -25,6 +25,13 @@ You can access it from a browser over the network now. It will persist through r
 
 By going to the cluster page, you can download a kubeconfig, then rename and move it to `~/.kube/config`.
 
+In order to restore to an exact configuration:
+```
+# needs to go here
+```
+
+To make a backup, use the script [here](docs/RANCHER_BACKUP.md).
+
 ## Services:
 The following services are **fully functional**:
 - `discord`
