@@ -1,5 +1,6 @@
 ## Creating a Rancher Backup
-To create a backup of your rancher configuration, you can use the following script:
+Unfortunately it doesn't appear Rancher has an easy text-based backup tool (that is to say, one that exports to YAML/XML/JSON), which isn't very GitOpsey.
+An alternative way to make a configuration backup is to use something like the following script:
 
 **WARNING:** This script doesn't take differences in Docker-based Rancher into account.
 I only created it to hackily and lazily make a backup without having to do all the substitutions manually.
@@ -17,11 +18,21 @@ VER=$(
   jq -r '.[] | select(startswith("CATTLE_SERVER_VERSION="))' | cut -d= -f2
 )
 
+# stop the rancher server
 docker stop $NAME
+
+# create a data container from it
 docker create --volumes-from $NAME --name rancher-data-$DATE rancher/rancher:latest
+
+# create the backup tarball
 docker run  --volumes-from rancher-data-$DATE -v $PWD:/backup busybox tar pzcvf /backup/rancher-data-backup-$VER-$DATE.tar.gz /var/lib/rancher
+
+# delete data container
 docker container rm rancher-data-$DATE
 
-# restart the server
+# restart the rancher server
 docker start $NAME
 ```
+
+After running this script, you should have a tarball formatted with the date and version of Rancher you're using in its name.
+Information on how to restore from backups is in the root README for the repo.
