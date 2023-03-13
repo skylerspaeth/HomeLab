@@ -15,4 +15,9 @@ ARG USER_GID=$USER_UID
 RUN addgroup --system --gid $USER_GID $USERNAME && adduser --system --uid $USER_UID --group appuser
 USER $USERNAME
 
-ENTRYPOINT java -Dnogui=true -Dconfig=/run/secrets/musicbot -jar JMusicBot-$JMB_VER.jar
+ENTRYPOINT java -Dnogui=true \
+  -Dtoken="$JMB_TOKEN" \
+  -Downer="$JMB_OWNER" \
+  -Dprefix="$JMB_PREFIX" \
+  -Dgame="$JMB_GAME" \
+  -jar JMusicBot-$JMB_VER.jar

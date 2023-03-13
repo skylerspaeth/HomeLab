@@ -11,6 +11,8 @@ The "right" way to create backups is to follow Rancher's official documentation 
 ```bash
 #!/bin/bash
 
+mkdir -p backup-sandbox && cd $_
+
 DATE=$(date '+%m-%d-%y')
 NAME=$(docker ps -a | awk '$2 == "rancher/rancher:latest" {print $NF}' | grep -v rancher-data-.* | head -n1)
 VER=$(
@@ -25,7 +27,7 @@ docker stop $NAME
 docker create --volumes-from $NAME --name rancher-data-$DATE rancher/rancher:latest
 
 # create the backup tarball
-docker run  --volumes-from rancher-data-$DATE -v $PWD:/backup busybox tar pzcvf /backup/rancher-data-backup-$VER-$DATE.tar.gz /var/lib/rancher
+docker run --volumes-from rancher-data-$DATE -v $PWD:/backup busybox tar pzcvf /backup/rancher-data-backup-$VER-$DATE.tar.gz /var/lib/rancher
 
 # delete data container
 docker container rm rancher-data-$DATE
